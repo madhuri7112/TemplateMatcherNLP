@@ -9,6 +9,7 @@ import os.path,subprocess
 from subprocess import STDOUT,PIPE
 from selenium import webdriver
 import unicodedata
+import datetime
 
 def instantiate_driver():
     downdir = '/Users/madhuripalagummi/Desktop/MyStuff/Grader/'
@@ -32,32 +33,36 @@ def scrapeNews():
 	titles = driver.find_elements_by_xpath("//span[@itemprop='headline']")
 #/html/body/div[4]/div/div[3]/div[17]/div/div[2]/a/span
 #/html/body/div[4]/div/div[3]/div[17]/div/div[3]/div[1]	
-
+	logFile = open("log.txt", "a")
 	page = 0
 	cardId = 0
-	while (page!=2):
+	while (cardId!=6000):
+		print("Page", page)
+		logFile.write(str(datetime.datetime.now()) + "\t"+ str(page) + "\n")
 		f = open("demofile.txt", "a")
 		cards = driver.find_elements_by_class_name('news-card')
 		content = ""
 		for card in cards[cardId:]:
-
+			
+			content = ""
 			content += str(cardId)+"\t"
 			print("CardId :   ", cardId)
 			title = card.find_element_by_xpath("div[2]/a/span").text + ""
 			title = unicodedata.normalize('NFKD', title).encode('ascii','ignore')
-			print (title)
+			#print (title)
 			content += title + "\t"
 
 			article = card.find_element_by_xpath("div[3]/div[1]").text
 			article = unicodedata.normalize('NFKD', article).encode('ascii','ignore')
-			print (article)
+			#print (article)
 			content += article + "\t"
 
 			link = card.find_element_by_xpath("div[2]/a").get_property('href')
 			link = unicodedata.normalize('NFKD', link).encode('ascii','ignore')
-			print (link)
+			#print (link)
 			content += link + "\n"
 			f.write(content)
+			logFile.write(str(datetime.datetime.now()) + "\t"+ str(cardId) + "\t" + content + "\n")
 			cardId += 1
 
 		f.close()
