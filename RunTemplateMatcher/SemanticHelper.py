@@ -58,6 +58,12 @@ class SemanticHelper:
     def isARelationshipExists(self, word1, word2):
           return self.conceptNet.checkRelationship(self.wordnetLemmatizer.lemmatize(word1), word2, CN_REL_IS_A)
 
+    def isAnEvent(self, word1):
+        return self.conceptNet.checkRelationship("", self.wordnetLemmatizer.lemmatize(word1), CN_HAS_SUBEVENT)
+
+    def isAUnitOfTime(self, word1):
+        return self.isARelationshipExists(token.text, "time_unit")
+
         
     
 

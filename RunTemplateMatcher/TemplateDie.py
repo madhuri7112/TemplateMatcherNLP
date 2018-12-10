@@ -1,10 +1,12 @@
+
 import SpacyConstants
 
 class TemplateDie:
 
-    def __init__(self, spacyNlp, parseTreeUtil):
+    def __init__(self, spacyNlp, parseTreeUtil, semanticHelper):
         self.spacyNlp = spacyNlp
         self.parseTreeUtil = parseTreeUtil
+        self.semanticHelper = semanticHelper
 
     def parse(self, sentence):
         rootWord = self.parseTreeUtil.getHeadOfSentence(sentence)
@@ -30,7 +32,11 @@ class TemplateDie:
             elif prepToken.text == SpacyConstants.PREP_ON:
                 whenDied = self.parseTreeUtil.getSubTreeString(prepToken)
             elif prepToken.text in [SpacyConstants.PREP_IN]:
-                pass
+                rootWordForPP = self.parseTreeUtil.findRootWordForPP(sentence, prepToken)
+                if self.semanticHelper.isAnEvent(rootWordForPP.text):
+                    reason = self.parseTreeUtil.getSubTreeString(prepToken)
+                else:
+                    whereDied = self.parseTreeUtil.getSubTreeString(prepToken)
         print(sentence)            
         print ("Who: " ,whoDied, "where: ", whereDied, "whenDied: ", whenDied, "age: ", age, "reason: ", reason)
         print("\n")

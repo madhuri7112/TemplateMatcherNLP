@@ -39,22 +39,43 @@ class Matcher:
                 return True
 
     def matchTemplateShare(self, sentence):
-    	doc = self.spacyNlp(sentence)
+        doc = self.spacyNlp(sentence)
         
         for token in doc:
             if self.wordnetLemmatizer.lemmatize(token.text) in ["shares", "shared", "share"]:
                 return True
-
+    #death - not done
     def matchTemplateDie(self, sentence):
         doc = self.spacyNlp(sentence)
 
         for token in doc:
-            if self.wordnetLemmatizer.lemmatize(token.text) in ["die", "died", "dies", "dead"]:
+            if self.wordnetLemmatizer.lemmatize(token.text) in ["die", "died", "dies", "dead", "dy"]:
                 return True
 
+        return False
+
     def matchTemplateInjure(self, sentence):
-    	doc = self.spacyNlp(sentence)
+        doc = self.spacyNlp(sentence)
         #injure
         for token in doc:
             if self.wordnetLemmatizer.lemmatize(token.text) in ["injured", "injury"]:
+                return True
+    # payment - not done
+    def matchTemplatePay(self, sentence):
+        doc = self.spacyNlp(sentence)
+        for token in doc:
+            if self.wordnetLemmatizer.lemmatize(token.text) in ["pay", "paid"]:
+                return True
+
+    #retirement - not done
+    def matchTemplateRetire(self, sentence):
+        doc = self.spacyNlp(sentence)
+        for token in doc:
+            if self.wordnetLemmatizer.lemmatize(token.text) in ["retire", "retired", "retires", "retirement"]:
+                return True
+
+    def matchTemplateAccuse(self, sentence):
+        doc = self.spacyNlp(sentence)
+        for token in doc:
+            if self.wordnetLemmatizer.lemmatize(token.text) in ["accuse", "accuses", "accused"]:
                 return True

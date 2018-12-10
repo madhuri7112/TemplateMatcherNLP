@@ -56,3 +56,9 @@ class ParseTreeUtil:
                 return token
         
         return None
+
+    def findRootWordForPP(self, sentence, prepToken):
+        doc = self.spacyNlp(sentence)
+        for token in doc:
+            if token.head.i == prepToken.i:
+                return token

@@ -17,6 +17,8 @@ from TemplateTweets import TemplateTweets
 from TemplateBan import TemplateBan
 from TemplateShare import TemplateShare
 from TemplateInjure import TemplateInjure
+from TemplateRetire import TemplateRetire
+from TemplateAccuse import TemplateAccuse
 
 print("Initializing spacy NLP model\n")
 spacyNlp = spacy.load('en_core_web_lg')
@@ -28,14 +30,16 @@ matcher = Matcher(spacyNlp, parseTreeUtil, wordnetLemmatizer)
 semanticHelper = SemanticHelper(spacyNlp, parseTreeUtil, wordnetLemmatizer)
 
 #Templates
-templateBan = TemplateBan(spacyNlp, parseTreeUtil, wordnetLemmatizer, semanticHelper) # 4
-templateNamed = TemplateNamed(spacyNlp, parseTreeUtil, semanticHelper) # 3
-templateFine = TemplateFine(spacyNlp, parseTreeUtil, wordnetLemmatizer, semanticHelper) # 4
-templateShare = TemplateShare(spacyNlp, parseTreeUtil, wordnetLemmatizer) # 3 (+2)
+templateBan = TemplateBan(spacyNlp, parseTreeUtil, wordnetLemmatizer, semanticHelper) # T1 4
+templateNamed = TemplateNamed(spacyNlp, parseTreeUtil, semanticHelper) # T2 3
+templateFine = TemplateFine(spacyNlp, parseTreeUtil, wordnetLemmatizer, semanticHelper) # T3 4
+templateShare = TemplateShare(spacyNlp, parseTreeUtil, wordnetLemmatizer) # T4 3 (+2)
+templateInjure = TemplateInjure(spacyNlp, parseTreeUtil, wordnetLemmatizer) # T5 5
+templateDie = TemplateDie(spacyNlp, parseTreeUtil, semanticHelper) # T6 5
+templatePay = TemplatePay(spacyNlp, parseTreeUtil, semanticHelper) # T7 4 (+1)
+templateRetire = TemplateRetire(spacyNlp, parseTreeUtil, semanticHelper) # T8 3
+templateAccuse = TemplateAccuse(spacyNlp, parseTreeUtil, semanticHelper) #T9
 
-templateInjure = TemplateInjure(spacyNlp, parseTreeUtil, wordnetLemmatizer) # 5
-templateDie = TemplateDie(spacyNlp, parseTreeUtil)
-templatePay = TemplatePay(spacyNlp, parseTreeUtil)
 templateTweets = TemplateTweets(spacyNlp, parseTreeUtil)
 #injury - 5
 
@@ -65,13 +69,25 @@ def processSentence(sentence):
     	print("Matched SHARED template\n")
         templateShare.parse(sentence)
 
-    if (matcher.matchTemplateDie(sentence)):
-    	print("Matched DIE template\n")
-        templateDie.parse(sentence)
-
     if (matcher.matchTemplateInjure(sentence)):
     	print("Matched INJURE template\n")
     	templateInjure.parse(sentence)
+
+    if (matcher.matchTemplateDie(sentence)):
+    	print("Matched DIE template\n")
+        templateDie.parse(sentence)
+    
+    if (matcher.matchTemplatePay(sentence)):
+    	print("Matched PAY template\n")
+        templatePay.parse(sentence)
+
+    if (matcher.matchTemplateRetire(sentence)):
+    	print("Matched RETIRE template")
+        templateRetire.parse(sentence)
+
+    if (matcher.matchTemplateAccuse(sentence)):
+    	print("Matched Accused template")
+    	templateAccuse.parse(sentence)
 
 
 def test():
