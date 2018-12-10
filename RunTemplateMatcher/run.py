@@ -16,6 +16,7 @@ from TemplatePay import TemplatePay
 from TemplateTweets import TemplateTweets
 from TemplateBan import TemplateBan
 from TemplateShare import TemplateShare
+from TemplateInjure import TemplateInjure
 
 print("Initializing spacy NLP model\n")
 spacyNlp = spacy.load('en_core_web_lg')
@@ -30,12 +31,13 @@ semanticHelper = SemanticHelper(spacyNlp, parseTreeUtil, wordnetLemmatizer)
 templateBan = TemplateBan(spacyNlp, parseTreeUtil, wordnetLemmatizer, semanticHelper) # 4
 templateNamed = TemplateNamed(spacyNlp, parseTreeUtil, semanticHelper) # 3
 templateFine = TemplateFine(spacyNlp, parseTreeUtil, wordnetLemmatizer, semanticHelper) # 4
+templateShare = TemplateShare(spacyNlp, parseTreeUtil, wordnetLemmatizer) # 3 (+2)
 
-templateShare = TemplateShare(spacyNlp, parseTreeUtil, wordnetLemmatizer)
+templateInjure = TemplateInjure(spacyNlp, parseTreeUtil, wordnetLemmatizer) # 5
 templateDie = TemplateDie(spacyNlp, parseTreeUtil)
 templatePay = TemplatePay(spacyNlp, parseTreeUtil)
 templateTweets = TemplateTweets(spacyNlp, parseTreeUtil)
-
+#injury - 5
 
 def main():
     while(1):
@@ -58,9 +60,22 @@ def processSentence(sentence):
     if (matcher.matchTemplateNamed(sentence)):
     	print("Matched NAMED template\n")
         templateNamed.parse(sentence)
+# --DF
+    if (matcher.matchTemplateShare(sentence)):
+    	print("Matched SHARED template\n")
+        templateShare.parse(sentence)
+
+    if (matcher.matchTemplateDie(sentence)):
+    	print("Matched DIE template\n")
+        templateDie.parse(sentence)
+
+    if (matcher.matchTemplateInjure(sentence)):
+    	print("Matched INJURE template\n")
+    	templateInjure.parse(sentence)
+
 
 def test():
-    with open('Data/ban') as data_file:
+    with open('Data/die') as data_file:
         sentences = data_file.readlines()
 
     for sentence in sentences:

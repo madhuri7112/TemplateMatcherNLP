@@ -38,4 +38,23 @@ class Matcher:
             if self.wordnetLemmatizer.lemmatize(token.text) in [namedWordVerb]:
                 return True
 
-    #def matchTemplateDie(self, sentence):
+    def matchTemplateShare(self, sentence):
+    	doc = self.spacyNlp(sentence)
+        
+        for token in doc:
+            if self.wordnetLemmatizer.lemmatize(token.text) in ["shares", "shared", "share"]:
+                return True
+
+    def matchTemplateDie(self, sentence):
+        doc = self.spacyNlp(sentence)
+
+        for token in doc:
+            if self.wordnetLemmatizer.lemmatize(token.text) in ["die", "died", "dies", "dead"]:
+                return True
+
+    def matchTemplateInjure(self, sentence):
+    	doc = self.spacyNlp(sentence)
+        #injure
+        for token in doc:
+            if self.wordnetLemmatizer.lemmatize(token.text) in ["injured", "injury"]:
+                return True

@@ -1,3 +1,4 @@
+
 SPACY_DEP_ROOT = "ROOT"
 SPACY_DEP_NSUBJ = "nsubj"
 SPACY_DEP_NSUBJ_PASS = "nsubjpass"
@@ -8,6 +9,7 @@ SPACY_DEP_CCOMP = "ccomp"
 SPACY_DEP_IND_OBJ_1 = "dative"
 SPACY_DEP_IND_OBJ_2 = "iobj"
 SPACY_DEP_AGENT = "agent"
+SPACY_DEP_COMPOUND = "compound"
 
 SPACY_TAG_PREP = "IN"
 SPACY_TAG_NN = "NN"
@@ -39,6 +41,7 @@ PREP_AT = "at"
 PREP_IN = "in"
 PREP_ON = "on"
 PREP_NEAR = "near"
+PREP_DURING = "during"
 
 SPACY_SUBJECTS = ["nsubj", "nsubjpass", "csubj", "csubjpass", "agent", "expl"]
 SPACY_OBJECTS = ["dobj", "dative", "attr", "oprd"]

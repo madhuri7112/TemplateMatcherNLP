@@ -1,5 +1,7 @@
 from SpacyConstants import *
-
+# Add when "BCCI shares pictures of Saha following surgery in England"
+# Add Where "ohn Cena shares photos of Kapil Sharma on Instagram" instagram
+# John Cena shares photos of Kapil Sharma on Instagram
 class TemplateShare:
     
     def __init__(self, spacyNlp, parseTreeUtil, wordnetLemmatizer):
@@ -25,6 +27,7 @@ class TemplateShare:
          return ' '.join(phrase)
 
     def parse(self, sentence):
+         sentence = self.preprocess(sentence)
          doc = self.spacyNlp(sentence)
          whoShared = None
          whoSharedId = None
