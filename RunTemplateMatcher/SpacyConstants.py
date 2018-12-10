@@ -7,6 +7,7 @@ SPACY_DEP_PREP_OBJ = "pobj"
 SPACY_DEP_CCOMP = "ccomp"
 SPACY_DEP_IND_OBJ_1 = "dative"
 SPACY_DEP_IND_OBJ_2 = "iobj"
+SPACY_DEP_AGENT = "agent"
 
 SPACY_TAG_PREP = "IN"
 SPACY_TAG_NN = "NN"

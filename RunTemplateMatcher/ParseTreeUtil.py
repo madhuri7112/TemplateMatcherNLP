@@ -6,6 +6,9 @@ class ParseTreeUtil:
 
     def getSubTreeString(self, token):
         
+        if not token:
+            return ""
+            
         return ' '.join([str(token1.text) for token1 in list(token.subtree)])
 
     def getHeadOfSentence(self, sentence):
@@ -32,7 +35,7 @@ class ParseTreeUtil:
     def findSubjectOfToken(self, sentence, targetToken):
         doc = self.spacyNlp(sentence)
         for token in doc:
-            if token.head.i == targetToken.i and  token.dep_ in [SPACY_DEP_NSUBJ]:
+            if token.head.i == targetToken.i and  token.dep_ in [SPACY_DEP_NSUBJ_PASS, SPACY_DEP_NSUBJ]:
                 return token
         
         return None
@@ -45,3 +48,11 @@ class ParseTreeUtil:
                 associatedPrepositionIds[token.i] = token
         
         return associatedPrepositionIds
+
+    def findObjectOfToken(self, sentence, targetToken):
+        doc = self.spacyNlp(sentence)
+        for token in doc:
+            if token.head.i == targetToken.i and  token.dep_ in [SPACY_DEP_DOBJ]:
+                return token
+        
+        return None

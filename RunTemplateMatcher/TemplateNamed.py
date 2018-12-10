@@ -2,9 +2,10 @@ from SpacyConstants import *
 
 class TemplateNamed:
 
-    def __init__(self, spacyNlp, parseTreeUtil):
+    def __init__(self, spacyNlp, parseTreeUtil, semanticHelper):
         self.spacyNlp = spacyNlp
         self.parseTreeUtil = parseTreeUtil
+        self.semanticHelper = semanticHelper
 
     def parse(self, sentence):
         doc = self.spacyNlp(sentence)
@@ -20,8 +21,12 @@ class TemplateNamed:
                 whoWasNamed = self.parseTreeUtil.getSubTreeString(token)
             elif token.dep_ in SPACY_OBJECTS:
                 name = self.parseTreeUtil.getSubTreeString(token)
+
+        whoNamed = self.parseTreeUtil.getSubTreeString(self.semanticHelper.findAgentOfAction(sentence, namedToken))
         print(sentence)
-        print ("Who: ", whoWasNamed, "  name:", name)
+        print ("who was named: ", whoWasNamed)
+        print("name:", name)
+        print("who named: " ,whoNamed)
         print('\n')
 
     

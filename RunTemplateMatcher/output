@@ -1,0 +1,260 @@
+Initializing spacy NLP model
+
+Wimbledon ready to fine players for disrespecting ball-kids
+
+('who_got_fined: ', 'Wimbledon')
+('who_fined: ', '')
+('reason :', None)
+('amount :', None, '\n')
+Can't talk about it, don't want a fine: Dhoni on umpiring errors
+
+('who_got_fined: ', '')
+('who_fined: ', '')
+('reason :', None)
+('amount :', None, '\n')
+Pak pacer fined after he threatened to throw ball at batsman
+
+('who_got_fined: ', 'Pak pacer')
+('who_fined: ', '')
+('reason :', None)
+('amount :', None, '\n')
+Serena was fined 12 lakh for violations during US Open final loss
+
+('who_got_fined: ', 'Serena')
+('who_fined: ', '')
+('reason :', 'violations during US Open final loss')
+('amount :', u'12 lakh', '\n')
+Footballer was fined 88 lakh $ after car caught speeding 3 times
+
+('who_got_fined: ', 'Footballer')
+('who_fined: ', '')
+('reason :', None)
+('amount :', u'88 lakh $', '\n')
+Zlatan was handed fine for slapping opponent during match
+
+('who_got_fined: ', 'Zlatan')
+('who_fined: ', '')
+('reason :', 'slapping opponent during match')
+('amount :', None, '\n')
+Broad was fined 15% match fees for aggressive send-off to Pant
+
+('who_got_fined: ', 'Broad')
+('who_fined: ', '')
+('reason :', None)
+('amount :', None, '\n')
+Pakistani pacer fined for showing middle finger to batsman
+
+('who_got_fined: ', '')
+('who_fined: ', 'Pakistani pacer')
+('reason :', 'showing middle finger to batsman')
+('amount :', None, '\n')
+Ex-world no. 1 fined 6.8 Lakh $ for forcing partner to withdraw
+
+('who_got_fined: ', 'Ex - world no . 1')
+('who_fined: ', '')
+('reason :', 'forcing partner to withdraw')
+('amount :', u'6.8 Lakh $', '\n')
+B'desh player slapped with fine for verbal abuse during match
+
+('who_got_fined: ', '')
+('who_fined: ', "B'desh player")
+('reason :', 'verbal abuse during match')
+('amount :', None, '\n')
+Man once ran naked on Lord's pitch to win 20 bet; fined 20
+
+('who_got_fined: ', '')
+('who_fined: ', '')
+('reason :', None)
+('amount :', u'20', '\n')
+Ishant Sharma was fined 15% match fee for Malan send-off
+
+('who_got_fined: ', 'Ishant Sharma')
+('who_fined: ', '')
+('reason :', None)
+('amount :', None, '\n')
+Tennis player was fined 11 lakh $ for smashing 3 racquets in match
+
+('who_got_fined: ', 'Tennis player')
+('who_fined: ', '')
+('reason :', 'smashing 3 racquets in match')
+('amount :', u'11 lakh $', '\n')
+IOA fined 74,000$ for damages caused to rooms during CWG
+
+('who_got_fined: ', '')
+('who_fined: ', 'IOA')
+('reason :', 'damages caused to rooms during CWG')
+('amount :', u'74,000$', '\n')
+Russia was fined for neo-Nazi banner at Russia-Uruguay WC game
+
+('who_got_fined: ', 'Russia')
+('who_fined: ', '')
+('reason :', 'neo - Nazi banner at Russia - Uruguay WC game')
+('amount :', None, '\n')
+Tennis player simulates masturbation with bottle, fined 12L
+
+('who_got_fined: ', '')
+('who_fined: ', 'Tennis player')
+('reason :', None)
+('amount :', u'12L', '\n')
+Ronaldo given 2-yr jail, 150-cr fine over tax fraud: Report
+
+('who_got_fined: ', '')
+('who_fined: ', 'Ronaldo')
+('reason :', None)
+('amount :', u'150-cr', '\n')
+Team was fined 27 lakh after cat stopped Champions League match
+
+('who_got_fined: ', 'Team')
+('who_fined: ', '')
+('reason :', None)
+('amount :', u'27 lakh', '\n')
+England was fined 14 lakh $ as player sips non-sponsored drink
+
+('who_got_fined: ', 'England')
+('who_fined: ', '')
+('reason :', None)
+('amount :', u'14 lakh $', '\n')
+121 crore fine on BCCI, Lalit Modi over 2009 IPL in SA
+
+('who_got_fined: ', '')
+('who_fined: ', '')
+('reason :', None)
+('amount :', u'121', '\n')
+Pak captain was fined 60% match fee for slow over-rate at Lord's
+
+('who_got_fined: ', 'Pak captain')
+('who_fined: ', '')
+('reason :', 'slow over - rate')
+('amount :', None, '\n')
+Football club owner was fined 10 lakh for racially abusing ref
+
+('who_got_fined: ', 'Football club owner')
+('who_fined: ', '')
+('reason :', None)
+('amount :', u'10 lakh', '\n')
+RR captain Ajinkya Rahane was fined 12 lakh $ for slow over-rate
+
+('who_got_fined: ', 'RR captain Ajinkya Rahane')
+('who_fined: ', '')
+('reason :', 'slow over - rate')
+('amount :', u'12 lakh $', '\n')
+Ex-SA cricketer Gibbs was once fined for smoking marijuana
+
+('who_got_fined: ', 'Ex - SA cricketer Gibbs')
+('who_fined: ', '')
+('reason :', 'smoking marijuana')
+('amount :', None, '\n')
+Russia was fined 20 lakh over 'monkey' chants in France match
+
+('who_got_fined: ', 'Russia')
+('who_fined: ', '')
+('reason :', "' monkey ' chants in France match")
+('amount :', u'20 lakh', '\n')
+RCB captain Virat Kohli was fined 12 lakh for slow over-rate
+
+('who_got_fined: ', 'RCB captain Virat Kohli')
+('who_fined: ', '')
+('reason :', 'slow over - rate')
+('amount :', u'12 lakh', '\n')
+Afghan keeper was fined for playing in Pak, asked to relocate
+
+('who_got_fined: ', 'Afghan keeper')
+('who_fined: ', '')
+('reason :', 'playing in Pak')
+('amount :', None, '\n')
+Pak spinner fined for pointing his finger at WI batsman
+
+('who_got_fined: ', 'Pak spinner')
+('who_fined: ', '')
+('reason :', 'pointing his finger at WI batsman')
+('amount :', None, '\n')
+Smith was banned for a Test, fined 100% match fee over tampering
+
+('who_got_fined: ', 'Smith')
+('who_fined: ', '')
+('reason :', 'a Test')
+('amount :', None, '\n')
+B'desh captain Shakib fined for urging players to walk off
+
+('who_got_fined: ', '')
+('who_fined: ', "B'desh captain Shakib")
+('reason :', 'urging players to walk off')
+('amount :', None, '\n')
+Man City coach handed 18 lakh $ fine by FA over yellow ribbon
+
+('who_got_fined: ', '')
+('who_fined: ', 'Man City coach')
+('reason :', 'yellow ribbon')
+('amount :', u'18 lakh $', '\n')
+Warner was fined 75% match fee for stairwell fight, De Kock 25%
+
+('who_got_fined: ', 'Warner')
+('who_fined: ', '')
+('reason :', None)
+('amount :', None, '\n')
+ICC fines bowler for dropping ball on De Villiers' chest
+
+('who_got_fined: ', 'ICC')
+('who_fined: ', '')
+('reason :', "dropping ball on De Villiers ' chest")
+('amount :', None, '\n')
+SA bowler was fined for waving at Dhawan after getting him out
+
+('who_got_fined: ', 'SA bowler')
+('who_fined: ', '')
+('reason :', 'waving at Dhawan after getting him out')
+('amount :', None, '\n')
+SA captain was fined 20% game fee for slow over-rate in Pink ODI
+
+('who_got_fined: ', 'SA captain')
+('who_fined: ', '')
+('reason :', 'slow over - rate in Pink ODI')
+('amount :', None, '\n')
+Football club demands 57 lakh $ dues post being fined 3 lakh
+
+('who_got_fined: ', '')
+('who_fined: ', 'Football club')
+('reason :', None)
+('amount :', u'57 lakh $', '\n')
+Player was fined 29 lakh for 'poor performance' in Aus Open
+
+('who_got_fined: ', 'Player')
+('who_fined: ', '')
+('reason :', "' poor performance ' in Aus Open")
+('amount :', u'29 lakh', '\n')
+Jadeja shares selfie with lion after being fined earlier
+
+('who_got_fined: ', 'Jadeja')
+('who_fined: ', '')
+('reason :', None)
+('amount :', None, '\n')
+World number 9 fined 6 lakh $ for abusing in Australian Open
+
+('who_got_fined: ', '')
+('who_fined: ', 'World number 9')
+('reason :', 'abusing in Australian Open')
+('amount :', u'6 lakh $', '\n')
+Kohli was fined for continuously complaining about damp ball
+
+('who_got_fined: ', 'Kohli')
+('who_fined: ', '')
+('reason :', 'continuously complaining about damp ball')
+('amount :', None, '\n')
+ISL coach was fined 4 lakh $ for misconduct against referees
+
+('who_got_fined: ', 'ISL coach')
+('who_fined: ', '')
+('reason :', 'misconduct against referees')
+('amount :', u'4 lakh $', '\n')
+Ex-sumo champ was fined 2.8 lakh $ for hitting junior with remote
+
+('who_got_fined: ', 'Ex - sumo champ')
+('who_fined: ', '')
+('reason :', 'hitting junior with remote')
+('amount :', u'2.8 lakh $', '\n')
+B'desh player was fined 15 Lakh $, suspended for assaulting young fan
+
+('who_got_fined: ', "B'desh player")
+('who_fined: ', '')
+('reason :', None)
+('amount :', u'15 Lakh $', '\n')
