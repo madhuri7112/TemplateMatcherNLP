@@ -1,27 +1,27 @@
 from SpacyConstants import * 
 
-class TemplateAccuse:
-    
+class TemplateApologize:
+
     def __init__(self, spacyNlp, parseTreeUtil, semanticHelper):
         self.spacyNlp = spacyNlp
         self.parseTreeUtil = parseTreeUtil
         self.semanticHelper = semanticHelper
 
     def parse(self, sentence):
-    	self.parseVerbForm(sentence)
-    	
+        self.parseVerbForm(sentence)
+        pass
 
     def parseVerbForm(self, sentence):
         
-        whoAccused = None
-        whoGotAccused = None
+        whoApologized = None
+        toWhom = None
         forWhat = None
 
         doc = self.spacyNlp(sentence)
         headToken = self.parseTreeUtil.getHeadOfSentence(sentence)
 
-        whoAccused = self.parseTreeUtil.getSubTreeString(self.semanticHelper.findAgentOfAction(sentence, headToken))
-        whoGotAccused = self.parseTreeUtil.getSubTreeString(self.parseTreeUtil.findObjectOfToken(sentence, headToken))
+        whoApologized = self.parseTreeUtil.getSubTreeString(self.semanticHelper.findAgentOfAction(sentence, headToken))
+        toWhom = self.parseTreeUtil.getSubTreeString(self.parseTreeUtil.findObjectOfToken(sentence, headToken))
 
         associatedPrepositionIds = self.parseTreeUtil.findPrepsAttachedToToken(sentence, headToken)
 
@@ -33,8 +33,7 @@ class TemplateAccuse:
                 elif prep.text == PREP_OVER:
                     forWhat = self.parseTreeUtil.getSubTreeString(token)
 
-        print("whoAccused: ", whoAccused)
-        print("whoGotAccused: ", whoGotAccused)
+        print("whoApologized: ", whoApologized)
+        print("toWhom: ", toWhom)
         print("forWhat: ", forWhat)
         print('\n')
-                

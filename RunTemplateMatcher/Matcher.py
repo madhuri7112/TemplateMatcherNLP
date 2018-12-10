@@ -74,8 +74,16 @@ class Matcher:
             if self.wordnetLemmatizer.lemmatize(token.text) in ["retire", "retired", "retires", "retirement"]:
                 return True
 
+    #Accusation - Not done
     def matchTemplateAccuse(self, sentence):
         doc = self.spacyNlp(sentence)
         for token in doc:
             if self.wordnetLemmatizer.lemmatize(token.text) in ["accuse", "accuses", "accused"]:
+                return True
+    
+    # Apology - Not done
+    def matchTemplateApologize(self, sentence):
+        doc = self.spacyNlp(sentence)
+        for token in doc:
+            if self.wordnetLemmatizer.lemmatize(token.text) in ["apologize", "apologizes", "apologized", "apologises", "apologise"]:
                 return True

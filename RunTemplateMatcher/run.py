@@ -19,6 +19,7 @@ from TemplateShare import TemplateShare
 from TemplateInjure import TemplateInjure
 from TemplateRetire import TemplateRetire
 from TemplateAccuse import TemplateAccuse
+from TemplateApologize import TemplateApologize
 
 print("Initializing spacy NLP model\n")
 spacyNlp = spacy.load('en_core_web_lg')
@@ -38,9 +39,10 @@ templateInjure = TemplateInjure(spacyNlp, parseTreeUtil, wordnetLemmatizer) # T5
 templateDie = TemplateDie(spacyNlp, parseTreeUtil, semanticHelper) # T6 5
 templatePay = TemplatePay(spacyNlp, parseTreeUtil, semanticHelper) # T7 4 (+1)
 templateRetire = TemplateRetire(spacyNlp, parseTreeUtil, semanticHelper) # T8 3
-templateAccuse = TemplateAccuse(spacyNlp, parseTreeUtil, semanticHelper) #T9
+templateAccuse = TemplateAccuse(spacyNlp, parseTreeUtil, semanticHelper) #T9 3
+templateApologize = TemplateApologize(spacyNlp, parseTreeUtil, semanticHelper)
 
-templateTweets = TemplateTweets(spacyNlp, parseTreeUtil)
+#templateTweets = TemplateTweets(spacyNlp, parseTreeUtil)
 #injury - 5
 
 def main():
@@ -86,8 +88,12 @@ def processSentence(sentence):
         templateRetire.parse(sentence)
 
     if (matcher.matchTemplateAccuse(sentence)):
-    	print("Matched Accused template")
+    	print("Matched ACCUSED template")
     	templateAccuse.parse(sentence)
+
+    if (matcher.matchTemplateApologize(sentence)):
+    	print("Matched ACCUSED template")
+    	templateApologize.parse(sentence)
 
 
 def test():
