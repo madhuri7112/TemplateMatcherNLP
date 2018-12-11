@@ -5,10 +5,11 @@ from  SpacyConstants import *
 # Sachin injured his leg during world cup on Wednesday
 class TemplateInjure:
 
-    def __init__(self, spacyNlp, parseTreeUtil, wordnetLemmatizer):
+    def __init__(self, spacyNlp, parseTreeUtil, wordnetLemmatizer, semanticHelper):
         self.spacyNlp = spacyNlp
         self.parseTreeUtil = parseTreeUtil
         self.wordnetLemmatizer = wordnetLemmatizer
+        self.semanticHelper = semanticHelper
 
     def parse(self, sentence):
         if self.parseTreeUtil.getHeadOfSentence(sentence).text != "injured":
@@ -38,12 +39,18 @@ class TemplateInjure:
         for token in doc:
             if token.head.i in associatedPrepositionIds:
                 prep = associatedPrepositionIds[token.head.i]
-                if prep.text in [PREP_FOR, PREP_AFTER, PREP_OVER] :
+                if prep.text in [PREP_FOR, PREP_AFTER, PREP_OVER, PREP_BY] :
                     howInjured = self.parseTreeUtil.getSubTreeString(token)
                 elif prep.text in [PREP_AT, PREP_DURING]:
                     whereInjured = self.parseTreeUtil.getSubTreeString(token)
                 elif prep.text == PREP_ON:
                     whenInjured = self.parseTreeUtil.getSubTreeString(token)
+                elif prep.text in [PREP_IN]:
+                    rootWordForPP = self.parseTreeUtil.findRootWordForPP(sentence, prep)
+                    if self.semanticHelper.isAnEvent(rootWordForPP.text):
+                        howInjured = self.parseTreeUtil.getSubTreeString(prep)
+                    else:
+                        whereInjured = self.parseTreeUtil.getSubTreeString(prep)
                     
         
         print(" who: ", whoGotInjured,
@@ -63,7 +70,7 @@ class TemplateInjure:
         doc = self.spacyNlp(sentence)
         headToken = self.parseTreeUtil.getHeadOfSentence(sentence)
         
-        print(headToken.text)
+        #print(headToken.text)
         #print(self.parseTreeUtil.printTree())
 
         whoGotInjured = self.parseTreeUtil.getSubTreeString(self.parseTreeUtil.findSubjectOfToken(sentence, headToken)) 
@@ -75,8 +82,8 @@ class TemplateInjure:
            
         # Fetching preps connected to Ban tag
         associatedPrepositionIds = self.parseTreeUtil.findPrepsAttachedToToken(sentence, headToken)
-        print(associatedPrepositionIds)
-        self.parseTreeUtil.printTree(sentence)
+        #print(associatedPrepositionIds)
+        #self.parseTreeUtil.printTree(sentence)
 
         for token in doc:
             if token.head.i in associatedPrepositionIds:

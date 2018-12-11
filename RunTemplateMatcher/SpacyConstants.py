@@ -42,6 +42,7 @@ PREP_IN = "in"
 PREP_ON = "on"
 PREP_NEAR = "near"
 PREP_DURING = "during"
+PREP_BY = "by"
 
 SPACY_SUBJECTS = ["nsubj", "nsubjpass", "csubj", "csubjpass", "agent", "expl"]
 SPACY_OBJECTS = ["dobj", "dative", "attr", "oprd"]

@@ -37,7 +37,8 @@ class SemanticHelper:
         if actionToken.tag_ not in [SPACY_TAG_VB, SPACY_TAG_VBD, SPACY_TAG_VBG, SPACY_TAG_VBP, SPACY_TAG_VBZ]:
             theme = subject
         else:
-            theme = self.findToTokenAction(sentence, actionToken)
+            #theme = self.findToTokenAction(sentence, actionToken)
+            theme = self.parseTreeUtil.findIndirectObjectOfToken(sentence, actionToken)
 
         return theme
 

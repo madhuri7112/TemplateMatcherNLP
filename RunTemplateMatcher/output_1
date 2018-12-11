@@ -1,0 +1,81 @@
+Initializing spacy NLP model
+
+Serena was fined 12 lakh for violations during US Open final loss
+
+Matched FINED template
+
+('who_got_fined: ', 'Serena')
+('who_fined: ', '')
+('reason :', 'violations during US Open final loss')
+('amount :', u'12 lakh')
+
+
+Sania was fined 100$ by Wimbledon for violations during finals
+
+Matched FINED template
+
+('who_got_fined: ', 'Sania')
+('who_fined: ', 'by Wimbledon')
+('reason :', 'violations during finals')
+('amount :', u'100$')
+
+
+BCCI fined Sachin 10 lakh for ball tampering
+
+Matched FINED template
+
+('who_got_fined: ', 'Sachin')
+('who_fined: ', 'BCCI')
+('reason :', None)
+('amount :', None)
+
+
+BCCI handed 10 lakh fine to Sachin for ball tampering
+
+Matched FINED template
+
+('who_got_fined: ', 'to Sachin')
+('who_fined: ', 'BCCI')
+('reason :', 'ball tampering')
+('amount :', u'10 lakh')
+
+
+Sachin was handed 1000$ fine by BCCI for misconduct
+
+Matched FINED template
+
+('who_got_fined: ', 'Sachin')
+('who_fined: ', 'by BCCI')
+('reason :', 'misconduct')
+('amount :', u'1000$')
+
+
+ICC banned Sachin over ball tampering
+
+Matched BANNED template
+
+(' whoGotBanned: ', 'Sachin', 'whoBanned: ', 'ICC', ' reason :', 'ball tampering', ' timePeriod :', None, 'fromWhat:', None)
+
+
+Sachin was banned by BCCI over ball tampering
+
+Matched BANNED template
+
+(' whoGotBanned: ', 'Sachin', 'whoBanned: ', 'by BCCI', ' reason :', 'ball', ' timePeriod :', None, 'fromWhat:', None)
+
+
+Andrew was handed ban by ICCI over misconduct
+
+Matched BANNED template
+
+Andrew was handed ban by ICCI over misconduct
+(' whoWasBanned: ', 'Andrew', ' reason :', 'misconduct', ' timePeriod :', None, 'fromWhat:', None, '\n')
+BCCI bans Virat from cricket for 6 months
+Matched BANNED template
+
+('....Checking relationship: ', '/r/IsA', ' between ', u'month', ' ', 'time_unit', ' with conceptNet.io.......\n')
+('Query: ', {'start': u'/c/en/month', 'end': '/c/en/time_unit', 'rel': '/r/IsA'})
+1
+(' whoGotBanned: ', 'Virat', 'whoBanned: ', 'BCCI', ' reason :', None, ' timePeriod :', '6 months', 'fromWhat:', 'cricket')
+
+

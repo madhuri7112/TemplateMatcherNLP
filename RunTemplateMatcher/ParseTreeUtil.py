@@ -62,3 +62,11 @@ class ParseTreeUtil:
         for token in doc:
             if token.head.i == prepToken.i:
                 return token
+
+    def findIndirectObjectOfToken(self, sentence, targetToken):
+        doc = self.spacyNlp(sentence)
+        for token in doc:
+            if token.head.i == targetToken.i and  token.dep_ in [SPACY_DEP_IND_OBJ_1, SPACY_DEP_IND_OBJ_2]:
+                return token
+        
+        return None

@@ -23,7 +23,7 @@ class TemplatePay:
         timePeriod = None
         reason = None
         who = None
-        fromWhat = None
+        
         headToken = self.parseTreeUtil.getHeadOfSentence(sentence)
         doc = self.spacyNlp(sentence)
         whatPaid = None
@@ -35,6 +35,7 @@ class TemplatePay:
         #     if token.head.i == headToken.i and (token.dep_ in [SPACY_DEP_NSUBJ_PASS, SPACY_DEP_NSUBJ]):
         #         who = self.parseTreeUtil.getSubTreeString(token)
         who = self.parseTreeUtil.getSubTreeString(self.semanticHelper.findAgentOfAction(sentence, headToken))
+        whoGotPaid = self.parseTreeUtil.getSubTreeString(self.semanticHelper.findThemeOfAction(sentence, headToken))
         whatPaid = self.parseTreeUtil.getSubTreeString(self.parseTreeUtil.findObjectOfToken(sentence, headToken))
         for token in doc:
             if token.head.i in associatedPrepositionIds:
@@ -47,7 +48,8 @@ class TemplatePay:
         if (whatPaid == None or whatPaid == "")and amount != None:
             whatPaid = "money"
         print(sentence)
-        print(" who: ", who,
+        print(" whoPaid: ", who,
+              "whoGotPaid: ", whoGotPaid,
              " reason :", reason,
              " amount :", amount,
               "what: ", whatPaid,'\n')

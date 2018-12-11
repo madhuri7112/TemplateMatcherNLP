@@ -32,15 +32,17 @@ semanticHelper = SemanticHelper(spacyNlp, parseTreeUtil, wordnetLemmatizer)
 
 #Templates
 templateBan = TemplateBan(spacyNlp, parseTreeUtil, wordnetLemmatizer, semanticHelper) # T1 4
-templateNamed = TemplateNamed(spacyNlp, parseTreeUtil, semanticHelper) # T2 3
 templateFine = TemplateFine(spacyNlp, parseTreeUtil, wordnetLemmatizer, semanticHelper) # T3 4
 templateShare = TemplateShare(spacyNlp, parseTreeUtil, wordnetLemmatizer) # T4 3 (+2)
-templateInjure = TemplateInjure(spacyNlp, parseTreeUtil, wordnetLemmatizer) # T5 5
+templateInjure = TemplateInjure(spacyNlp, parseTreeUtil, wordnetLemmatizer, semanticHelper) # T5 5
+
 templateDie = TemplateDie(spacyNlp, parseTreeUtil, semanticHelper) # T6 5
 templatePay = TemplatePay(spacyNlp, parseTreeUtil, semanticHelper) # T7 4 (+1)
 templateRetire = TemplateRetire(spacyNlp, parseTreeUtil, semanticHelper) # T8 3
 templateAccuse = TemplateAccuse(spacyNlp, parseTreeUtil, semanticHelper) #T9 3
-templateApologize = TemplateApologize(spacyNlp, parseTreeUtil, semanticHelper)
+templateApologize = TemplateApologize(spacyNlp, parseTreeUtil, semanticHelper) #T10 3
+templateNamed = TemplateNamed(spacyNlp, parseTreeUtil, semanticHelper) # T2 3
+
 
 #templateTweets = TemplateTweets(spacyNlp, parseTreeUtil)
 #injury - 5
@@ -92,12 +94,12 @@ def processSentence(sentence):
     	templateAccuse.parse(sentence)
 
     if (matcher.matchTemplateApologize(sentence)):
-    	print("Matched ACCUSED template")
+    	print("Matched APOLOGISED template")
     	templateApologize.parse(sentence)
 
 
 def test():
-    with open('Data/die') as data_file:
+    with open('Data/inputTest') as data_file:
         sentences = data_file.readlines()
 
     for sentence in sentences:

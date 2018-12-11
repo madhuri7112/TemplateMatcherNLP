@@ -1,0 +1,51 @@
+Templates:
+
+1. BANNED (who_banned, who_got_banned, reason, for_how_long, from_what)
+Eg: ICC bans Sachin from Cricket for 3 months over ball tampering
+(ICC, sachin, ball tampering, 3 months, cricket)
+
+2. NAMED(who_was_named, name, who_named)
+Eg: ICC named sachin as best cricketer of the year
+(ICC, sachin, best cricketer of the year)
+
+3. FINED (who_fined, who_got_fined, reason, amount)
+Eg: Afghan keeper was fined 100$ for playing in Pak
+(None, Afghan keeper, playing in pak, 100$)
+
+4. SHARED (who_shared, type_shared, what_shared)
+Eg: Shane Warne shares pic with Ed Sheeran having beer at Lord's
+(Shane Warne, pic, with Ed Sheeran having beer at Lord's)
+
+5. INJURED (who_injured, when_injured, what_injured, where_injured, how_injured)
+Eg: Sachin injured his leg during world cup on Wednesday
+(Sachin, Wednesday, leg, wordl Cup, None)
+
+6. DIE (who_died, when_died, where_died, how_died, age)
+Eg: Indian keeper dies in car crash at London on wednesday
+(Indian keeper, Wednesday, London, car crash, None)
+
+7. PAY (who_paid, who_got_paid, what_paid, amount_paid, reason)
+Eg: BCCI pays 1 crore to Gambhir for tournaments played before 2015
+(BCCI, Gambhir, money, 1 crore, tournaments played before 2015)
+
+8. RETIRE (who_retired, from_what_retired, age)
+Eg: Sachin retired from ODIs at an age of 45
+(Sachin, ODIs, age of 45)
+
+9. ACCUSE (who_accused, who_got_accused, reason)
+Eg: Woman footballer accuses John of buying players
+(Woman footballer, John, buying players)
+
+10. APOLOGISE(who_apologised, to_whom, reason)
+Coach apologises Sachin for denying batsman maiden century
+(Coach, sachin, denying batsman maiden century)
+
+
+RESOURCES USED:
+
+1. SPACY - for generating dependency trees
+2. Wordnet - For extracting hypernyms(used to extract IS-A relationships)
+3. ConceptNet -  Used for extracting IS-A and IS-EVENT relationships
+4. pyWsd - Word sense disambiguation library
+
+

@@ -20,10 +20,10 @@ class TemplateBan:
 
     def parse(self, sentence):
     	sentence = self.preprocess(sentence)
-        if self.parseTreeUtil.getHeadOfSentence(sentence).text != "banned":
-           self.parseNounForm(sentence)
-        else:
+        if self.parseTreeUtil.getHeadOfSentence(sentence).text in ["banned", "bans"]:
            self.parseVerbForm(sentence)
+        else:
+           self.parseNounForm(sentence)
    
     def parseVerbForm(self, sentence):
         timePeriod = None
@@ -36,7 +36,8 @@ class TemplateBan:
         #Find associated Prep Ids and subject
         associatedPrepositionIds = self.parseTreeUtil.findPrepsAttachedToToken(sentence, headToken)
         
-        who = self.parseTreeUtil.getSubTreeString(self.semanticHelper.findAgentOfAction(sentence, headToken))
+        whoGotBanned = self.findWhoGotBannedInVerbForm(sentence, headToken)
+        whoBanned = self.parseTreeUtil.getSubTreeString(self.semanticHelper.findAgentOfAction(sentence, headToken))
         for token in doc:
             if token.head.i == headToken.i and (token.dep_ in [SPACY_DEP_NSUBJ_PASS, SPACY_DEP_NSUBJ]):
                 who = self.parseTreeUtil.getSubTreeString(token)
@@ -57,7 +58,8 @@ class TemplateBan:
                     timePeriod = self.parseTreeUtil.getSubTreeString(token)
                     
         
-        print(" who: ", who,
+        print(" whoGotBanned: ", whoGotBanned,
+            "whoBanned: ", whoBanned,
              " reason :", reason,
              " timePeriod :", timePeriod,"fromWhat:", fromWhat)
         print('\n')
@@ -73,7 +75,8 @@ class TemplateBan:
         
 #Ronaldo received 1-match ban, clear to face former club Man Utd
         #print(headToken)
-        #print(self.parseTreeUtil.printTree())      
+        #print(self.parseTreeUtil.printTree())
+        whoBanned = self.parseTreeUtil.getSubTreeString(self.semanticHelper.findAgentOfAction(sentence, headToken))    
         for token in doc:       
             tokenLemma = self.wordnetLemmatizer.lemmatize(token.text)
             if tokenLemma == 'ban' or tokenLemma == 'banned':
@@ -83,7 +86,7 @@ class TemplateBan:
             elif token.head.tag_ != SPACY_TAG_VBN and token.head.i == headToken.i and (token.dep_ in [SPACY_DEP_IND_OBJ_1, SPACY_DEP_IND_OBJ_2]):
                 who = self.parseTreeUtil.getSubTreeString(token)
         # Fetching preps connected to Ban tag
-        associatedPrepositionIds = self.parseTreeUtil.findPrepsAttachedToToken(sentence, banToken)
+        associatedPrepositionIds = self.parseTreeUtil.findPrepsAttachedToToken(sentence, headToken)
         
             
         for token in doc:
@@ -106,6 +109,24 @@ class TemplateBan:
                 timePeriod = self.parseTreeUtil.getSubTreeString(token)
         
         print(sentence)
-        print(" who: ", who,
+        print(" whoWasBanned: ", who,
              " reason :", reason,
              " timePeriod :", timePeriod,"fromWhat:", fromWhat,'\n')
+
+    def findWhoGotBannedInVerbForm(self, sentence, actionToken):
+        if actionToken.tag_ in [SPACY_TAG_VB, SPACY_TAG_VBD, SPACY_TAG_VBG, SPACY_TAG_VBP, SPACY_TAG_VBZ]:
+            whoGotBanned = self.parseTreeUtil.getSubTreeString(self.parseTreeUtil.findObjectOfToken(sentence, actionToken))
+        else:
+            whoGotBanned = self.parseTreeUtil.getSubTreeString(self.parseTreeUtil.findSubjectOfToken(sentence, actionToken))
+        return whoGotBanned
+
+
+
+
+
+
+
+
+
+
+
